@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Query Results</title>
+
+</head>
+
+
+
+     <a href="{% url 'index' %}">menu</a><br>
+     <a href="{% url 'Add_a_Movie' %}">Add_a_Movie</a><br>
+     <a href="{% url 'Query_Results' %}">Query_Results</a><br>
+
+
+
+        <p align="right">Add a Movie</p></a >
+<body style="background-color:mediumpurple">
+             <h2 style="color:yellow" align="center">
+                     Simple Disney Tracker Website
+             </h2>
+             <p align="left">Genre Statistics</p><br>
+             <table border="1" width="40%">
+        <th>Genre</th>
+        <th>Max Gross Movie</th>
+        <th>Max Gross Movie Gross</th>
+         <th>Year Count</th>
+         <th>Max Length Movie</th>
+        {% for i in sql_res %}
+        <tr>
+        <td>{{ i.genre }} </td>
+        <td>{{ i.MaxGrossMovie }} </td>
+        <td>{{ i.MaxGrossMovieGross }} </td>
+        <td>{{ i.YearCount }} </td>
+        <td>{{ i.MaxLengthMovie}} </td>
+        </tr>
+        {% endfor %}
+</table>
+
+<form method="POST"  >
+    {% csrf_token %}
+    <label for="numberOfMovies"> numberOfMovies</label>
+    <input type="number" id="numberOfMovies", name="numberOfMovies" required step="1" min="0"><br>
+    <input type="submit">
+</form>
+{% if sql_res2 %}
+   <table border="1" width="40%">
+    <th>Actor</th>
+    <th>Movie</th>
+       {% for actor in sql_res2 %}
+            <tr>
+            <td>{{ actor.Actor }} </td>
+            <td>{{ actor.MovieName }} </td>
+            </tr>
+       {% endfor %}
+   </table><br>
+{% endif %}
+<br>
+
+        <p align="left">Movies with most 'Children Only' actors: </p><br><br>
+       <table border="1" width="40%">
+        <th>Movie</th>
+        <th>Number of 'Children Only' Actors</th>
+        {% for i in sql_res3 %}
+        <tr>
+        <td>{{ i.MovieName }} </td>
+        <td>{{ i.NumberOfChildrenOnlyActors }} </td>
+        </tr>
+        {% endfor %}
+        </table>
+
+</body>
+</html>

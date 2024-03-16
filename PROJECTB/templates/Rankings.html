@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rankings</title>
+
+</head>
+<body  style=background-image:url("https://i.ytimg.com/vi/feBlxvd7HEM/maxresdefault.jpg")>
+
+
+
+<h2 style="background-color: white" align="center">
+             Rankings
+
+<br><br>
+
+         <a style="background-color: white" href="{% url 'index' %}"> Home  </a>&nbsp;&nbsp
+         <a style="background-color: white" href="{% url 'Rankings' %}">  Rankings </a>&nbsp;&nbsp
+         <a  style="background-color: white" href="{% url 'Query_Results' %}">  Query Results  </a>&nbsp
+         <a  style="background-color: white" href="{% url 'Records_Management' %}">  Records Management </a>&nbsp
+</h2>
+<form  method="POST">
+     {% csrf_token %}
+     <label style="background-color: white" for="hidRank"> hID:</label><br>
+    <input type="number" id="hidRank" align="center"  name="hidRank" required step="1" min="0"><br>
+
+     <label style="background-color: white" for="titleRank"> Title:</label><br>
+    <input type="text" id="titleRank"  align="center" name="titleRank" required step="1" min="0"><br>
+
+
+   <b style="background-color: white">Rank:</b><label><br>
+     <select name="Rank" id="Rank" size="1" required>
+      <option value="" > -- select an option -- </option>
+       <option> 1 </option>
+      <option> 2 </option>
+      <option> 3 </option>
+      <option> 4 </option>
+       <option> 5 </option>
+      </select>
+ </label>
+
+
+<br><br>
+<input type="submit" name="submit1" >
+
+
+    </form>
+
+
+
+
+
+
+<br><br>
+
+<form method="POST">
+{% csrf_token %}
+
+
+<label style="background-color: white">Genre</label>:<label><br>
+
+
+<select name="Genre" id="Genre" for="Genre" size="1"  required>
+
+<option value="" > -- select an option -- </option>
+   {% for k in SelectResult %}
+    <option value="{{ k.genre }}"> {{ k.genre }} </option>
+    {% endfor %}
+
+</select>
+
+ </label><br><br>
+
+
+<label style="background-color: white">minRank</label>:<label><br>
+    <label for="minRank"></label><input type="number" id="minRank" align="center" name="minRank"
+                                        required step="1" min="0"><br></label>
+    <input type="submit" name="submit2">
+
+</form>
+
+
+{% if resultTop5 %}<br>
+   <table border="5" width="60%" style="background-color: #ffffff">
+    <th>title</th>
+    <th>rank</th>
+       {% for i in resultTop5 %}
+            <tr>
+            <td>{{ i.title }} </td>
+            <td>{{ i.Avgrank }} </td>
+            </tr>
+       {% endfor %}
+   </table><br>
+{% endif %}
+
+
+
+
+</body>
+</html>

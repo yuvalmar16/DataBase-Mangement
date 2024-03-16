@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+   {% load static %}
+  <head>
+    <title>Query Results</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+  </head>
+
+   <body style=background-image:url("https://payload.cargocollective.com/1/11/367710/13568488/MOVIECLASSICSerikweb_2500_800.jpg")>
+     <h2 style=background-color:white align="center" >
+                     Query Results
+         <br><br>
+         <a style="background-color: white" href="{% url 'index' %}"> Home  </a>&nbsp;&nbsp
+         <a style="background-color: white" href="{% url 'Rankings' %}">  Rankings </a>&nbsp;&nbsp
+         <a  style="background-color: white" href="{% url 'Query_Results' %}">  Query Results  </a>&nbsp
+         <a  style="background-color: white" href="{% url 'Records_Management' %}">  Records Management </a>&nbsp
+
+
+
+             </h2>
+    <p  style="color: blue" align="left">Query 1:</p>
+         <table border="5" width="60%" style="background-color: white">
+        <th>Genre</th>
+        <th>Title</th>
+        <th>Duration</th>
+        {% for i in sql_res %}
+        <tr>
+        <td>{{ i.genre }} </td>
+        <td>{{ i.title }} </td>
+        <td>{{ i.duration }} </td>
+        </tr>
+        {% endfor %}
+        </table>
+<br><br>
+
+      <p  style="color: blue"  align="left">Query 2: </p>
+           <table border="5" width="60%" style="background-color: white">
+        <th>Title</th>
+            <th>Average Rank</th>
+            {% for i in sql_res2 %}
+            <tr>
+            <td>{{ i.title }} </td>
+            <td>{{ i.AverageRank }} </td>
+            </tr>
+            {% endfor %}
+            </table>
+<br><br>
+
+ <p  style="color: blue"  align="left">Query 3: </p>
+           <table border="5" width="60%" style="background-color: white">
+        <th>Title</th>
+            {% for i in sql_res3 %}
+            <tr>
+            <td>{{ i.title }} </td>
+            </tr>
+            {% endfor %}
+            </table>
+   <br><br>
+
+</body>
+</html>

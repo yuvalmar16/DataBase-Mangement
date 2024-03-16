@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+  <head>
+    <title>Add a Movie</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+  </head>
+
+<body style=background-image:url("https://res.cloudinary.com/ybmedia/image/upload/c_crop,h_863,w_1536,x_0,y_142/c_fill,f_auto,h_900,q_auto,w_1600/v1/m/e/d/ed33e854563fa37192686bef3e94e8b553e1e3b5/tv-shows-produced-episodes.jpg")>
+   <h2 style="background-color: white" align="center">
+             Records Management
+
+<br><br>
+
+         <a style="background-color: white" href="{% url 'index' %}"> Home  </a>&nbsp;&nbsp
+         <a style="background-color: white" href="{% url 'Rankings' %}">  Rankings </a>&nbsp;&nbsp
+         <a  style="background-color: white" href="{% url 'Query_Results' %}">  Query Results  </a>&nbsp
+         <a  style="background-color: white" href="{% url 'Records_Management' %}">  Records Management </a>&nbsp
+</h2>
+
+  <h3  align="left">
+     Order </h3>
+     &nbsp;
+<br>
+
+
+ <form  method="POST">
+     {% csrf_token %}
+        &nbsp; <label style="background-color: white" for="hidOrder"> hID:</label><br>
+    <input type="number" id="hidOrder" align="center" name="hidOrder" required step="1" min="0"><br>
+
+        &nbsp;<label style="background-color: white" for="titleOrder"> Title:</label><br>
+    <input type="text" id="titleOrder" align="center"  name="titleOrder" required step="1" min="0"><br>
+
+    <input type="submit" name="submitOrder" required>
+
+
+ </form>
+     <br>
+
+{% if ErrorOrder %}
+
+
+         &nbsp; &nbsp;<p style="background: white">{{ ErrorOrder }}</p>
+
+
+{% endif %}
+
+
+
+
+
+
+
+
+  <h3  align="left">Return
+  </h3>
+
+
+
+     <form  method="POST">
+     {% csrf_token %}
+      &nbsp; <label style="background-color: white" for="hidReturn">  hID:</label><br>
+    <input type="number" id="hidReturn" align="center"  name="hidReturn" required step="1" min="0"><br>
+
+       &nbsp; <label style="background-color: white" for="titleReturn"> Title:</label><br>
+    <input type="text" id="titleReturn"  align="center" name="titleReturn" required step="1" min="0"><br>
+
+      &nbsp;<input type="submit" name="submitReturn">
+
+ </form>
+
+     {% if ErrorReturn %}
+
+
+         &nbsp;&nbsp;<p style="background-color: white">{{ ErrorReturn }}</p>
+
+
+{% endif %}
+
+<br><br>
+
+     <table border="5" width="60%" style="background-color: white">
+        <th>hID</th>
+        <th>TotalOrders</th>
+        {% for i in sql_res5 %}
+        <tr>
+        <td>{{ i.NEWhID }} </td>
+        <td>{{ i.NEWTotalOrders }} </td>
+        </tr>
+        {% endfor %}
+     </table>
+<br><br>
+
+
+</body>
+</html>

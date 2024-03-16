@@ -1,0 +1,101 @@
+body {
+  background-color: #f3f3f3;
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: #333;
+  font-size: 3em;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+p {
+  color: #555;
+  font-size: 1.2em;
+  line-height: 1.5;
+  margin: 20px 0;
+}
+
+a {
+  color: #00b8d4;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #0052cc;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.box {
+  background-color: #fff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 20px 0;
+  position: relative;
+}
+
+.box::before {
+  content: "";
+  background: linear-gradient(to right, #00b8d4, #0052cc);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: skewY(-3deg);
+  transform-origin: top left;
+}
+
+.box h2 {
+  color: #fff;
+  font-size: 2em;
+  font-weight: bold;
+  margin: 20px;
+  transform: skewY(3deg);
+  transform-origin: top left;
+}
+
+.box p {
+  color: #333;
+  font-size: 1.2em;
+  margin: 20px;
+}
+
+.btn {
+  background-color: #00b8d4;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.2em;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  background-color: #0052cc;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 10px;
+  }
+  .box {
+    margin: 10px 0;
+  }
+  h1 {
+    font-size: 2em;
+  }
+  p {
+    font-size: 1em;
+  }
+}

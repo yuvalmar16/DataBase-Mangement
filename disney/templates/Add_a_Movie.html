@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add a movie</title>
+</head>
+<body style="background-color:mediumpurple">
+     <h2 style="color:yellow" align="center">
+             Simple Disney Tracker Website
+
+
+     </h2>
+
+
+          <a href="{% url 'index' %}">menu</a><br>
+     <a href="{% url 'Add_a_Movie' %}">Add_a_Movie</a><br>
+     <a href="{% url 'Query_Results' %}">Query_Results</a><br>
+
+
+
+
+
+ <form  method="POST">
+     {% csrf_token %}
+         <b>Movie Title</b>:<label>
+     <textarea name="Movie Title:" maxlength="50" cols="50" rows="1" required></textarea>
+ </label><br>
+             <b>Release Date</b>:<label>
+     <input type="date" required />
+ </label><br>
+              <b>Genre</b>:<label>
+     <select name="Genre" size="1"  required>
+
+<option value="" > -- select an option -- </option>
+<option> Action </option>
+<option> Adventure </option>
+<option> Comedy </option>
+<option> Drama </option>
+</select>
+ </label><br>
+
+   <b>Rating</b>:<label>
+     <select name="Rating:" size="1" required>
+      <option value="" > -- select an option -- </option>
+       <option> R </option>
+      <option> G </option>
+      <option> PG </option>
+      <option> PG-13 </option>
+       <option>Not Rated </option>
+      </select>
+ </label><br>
+
+    <b>gross</b>:<label>
+        <input type="number" max="999999999" min="0" name="gross:" maxlength="9"
+               cols="20" rows="1" required>
+    </label><br>
+
+    <input type="submit" >
+
+
+ </form>
+</body>
+</html>
