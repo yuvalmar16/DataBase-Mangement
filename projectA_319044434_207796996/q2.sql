@@ -96,13 +96,13 @@ create table Requested
     finalDecision   varchar(100),
     PRIMARY KEY (ManagerId,regularFamilyID,RequestDate,reason)
 )
-------אי אפשר לוודא שמעבירים בקשה שכבר אושרה.
+------ֳ ֳ© ֳ ֳ´ֳ¹ֳ¸ ֳ¬ֳ¥ֳ¥ֳ£ֳ  ֳ¹ֳ®ֳ²ֳ¡ֳ©ֳ¸ֳ©ֳ­ ֳ¡ֳ·ֳ¹ֳ₪ ֳ¹ֳ«ֳ¡ֳ¸ ֳ ֳ¥ֳ¹ֳ¸ֳ₪.
 
 
 
 create table MoveRequest
 (
-    --ניסינו לכתוב אחרי שהגדרנו את מנהל פעמיים כמפתח זר On delete cascade אך זה לא התאפשר מבחינת הddl
+    --ֳ°ֳ©ֳ±ֳ©ֳ°ֳ¥ ֳ¬ֳ«ֳ÷ֳ¥ֳ¡ ֳ ֳ§ֳ¸ֳ© ֳ¹ֳ₪ֳ¢ֳ£ֳ¸ֳ°ֳ¥ ֳ ֳ÷ ֳ®ֳ°ֳ₪ֳ¬ ֳ´ֳ²ֳ®ֳ©ֳ©ֳ­ ֳ«ֳ®ֳ´ֳ÷ֳ§ ֳ¦ֳ¸ On delete cascade ֳ ֳ× ֳ¦ֳ₪ ֳ¬ֳ  ֳ₪ֳ÷ֳ ֳ´ֳ¹ֳ¸ ֳ®ֳ¡ֳ§ֳ©ֳ°ֳ÷ ֳ₪ddl
     SecondManagerId  int not null,
      foreign key (SecondManagerId) references Manager (eID)  ,
     reasonForReplace varchar(100) not null,
@@ -163,9 +163,9 @@ create table channelSwitch
 
 
 
---כאן יש את מועדי הצפייה בכל הערוצים שבאותו ממיר. ההנחה שלנו שישמרו הערוצים שאינם נצפו
--- על ידי הלקוח אך נמצאים בממיר שלו
----והswitchingTime שלהם ישמר כnull
+--ֳ«ֳ ֳ¯ ֳ©ֳ¹ ֳ ֳ÷ ֳ®ֳ¥ֳ²ֳ£ֳ© ֳ₪ֳ¶ֳ´ֳ©ֳ©ֳ₪ ֳ¡ֳ«ֳ¬ ֳ₪ֳ²ֳ¸ֳ¥ֳ¶ֳ©ֳ­ ֳ¹ֳ¡ֳ ֳ¥ֳ÷ֳ¥ ֳ®ֳ®ֳ©ֳ¸. ֳ₪ֳ₪ֳ°ֳ§ֳ₪ ֳ¹ֳ¬ֳ°ֳ¥ ֳ¹ֳ©ֳ¹ֳ®ֳ¸ֳ¥ ֳ₪ֳ²ֳ¸ֳ¥ֳ¶ֳ©ֳ­ ֳ¹ֳ ֳ©ֳ°ֳ­ ֳ°ֳ¶ֳ´ֳ¥
+-- ֳ²ֳ¬ ֳ©ֳ£ֳ© ֳ₪ֳ¬ֳ·ֳ¥ֳ§ ֳ ֳ× ֳ°ֳ®ֳ¶ֳ ֳ©ֳ­ ֳ¡ֳ®ֳ®ֳ©ֳ¸ ֳ¹ֳ¬ֳ¥
+---ֳ¥ֳ₪switchingTime ֳ¹ֳ¬ֳ₪ֳ­ ֳ©ֳ¹ֳ®ֳ¸ ֳ«null
 
 create table tvShow
 (
